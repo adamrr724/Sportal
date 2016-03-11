@@ -115,5 +115,56 @@
 		{
 			return $this->id;
 		}
+
+		function save()
+		{
+			$existing_leagues = $GLOBALS['DB']->query("SELECT * FROM leagues");
+			$GLOBALS['DB']->exec("INSERT INTO leagues (league_name, sport_id, price, skill_level, description, location, website, email, org_id) VALUES ('{$this->getLeagueName()}', {$this->getSportId()}, {$this->getPrice()}, '{$this->getSkillLevel()}', '{$this->getDescription()}', '{$this->getLocation()}', '{$this->getWebsite()}', '{$this->getEmail()}', {$this->getOrgId()});");
+			$this->id = $GLOBALS['DB']->lastInsertId();
+		}
+
+		static function getAll()
+		{
+			$returned_leagues = $GLOBALS['DB']->query("SELECT * FROM leagues");
+			$leagues = array();
+			foreach($returned_leagues as $league){
+				 $league_name = $league['league_name'];
+				 $sport_id = $league['sport_id'];
+				 $price = $league['price'];
+				 $skill_level = $league['skill_level'];
+				 $description = $league['description'];
+				 $location = $league['location'];
+				 $website = $league['website'];
+				 $email = $league['email'];
+				 $org_id = $league['org_id'];
+				 $id = $league['id'];
+				 $new_league = new League($league_name, $sport_id, $price, $location, $skill_level, $description, $website, $email, $org_id, $id);
+				 array_push($leagues, $new_league);
+			}
+			return $leagues;
+		}
+
+		static function deleteAll()
+		{
+			$GLOBALS['DB']->exec("DELETE FROM leagues");
+		}
+
+        static function find($id)
+        {
+            $all_leagues = League::getAll();
+            $found_league = null;
+            foreach($all_leagues as $league) {
+                $league_id = $league->getId();
+                if ($league_id == $id) {
+                    $found_league = $league;
+                }
+            }
+            return $found_league;
+        }
+
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM leagues WHERE id = {$this->getId()};");
+        }
 	}
  ?>
