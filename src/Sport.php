@@ -15,9 +15,9 @@
 			return $this->sport_name;
 		}
 
-		function setSportName()
+		function setSportName($new_sport_name)
 		{
-			$this->sport_name = $sport_name;
+			$this->sport_name = $new_sport_name;
 		}
 
 		function getId()

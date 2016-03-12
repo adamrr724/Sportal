@@ -31,9 +31,9 @@
 			return $this->league_name;
 		}
 
-		function setLeagueName()
+		function setLeagueName($new_league_name)
 		{
-			$this->league_name = $league_name;
+			$this->league_name = $new_league_name;
 		}
 
 		function getOrgId()
@@ -41,9 +41,9 @@
 			return $this->org_id;
 		}
 
-		function setOrgId()
+		function setOrgId($new_org_id)
 		{
-			$this->org_id = $org_id;
+			$this->org_id = $new_org_id;
 		}
 
 		function getSportId()
@@ -56,9 +56,9 @@
 			return $this->price;
 		}
 
-		function setPrice()
+		function setPrice($new_price)
 		{
-			$this->price = $price;
+			$this->price = $new_price;
 		}
 
 		function getSkillLevel()
@@ -66,9 +66,9 @@
 			return $this->skill_level;
 		}
 
-		function setSkillLevel()
+		function setSkillLevel($new_skill_level)
 		{
-			$this->skill_level = $skill_level;
+			$this->skill_level = $new_skill_level;
 		}
 
 		function getDescription()
@@ -76,9 +76,9 @@
 			return $this->description;
 		}
 
-		function setDescription()
+		function setDescription($new_description)
 		{
-			$this->description = $description;
+			$this->description = $new_description;
 		}
 
 		function getLocation()
@@ -86,9 +86,9 @@
 			return $this->location;
 		}
 
-		function setLocation()
+		function setLocation($new_location)
 		{
-			$this->location = $location;
+			$this->location = $new_location;
 		}
 
 		function getWebsite()
@@ -96,9 +96,9 @@
 			return $this->website;
 		}
 
-		function setWebsite()
+		function setWebsite($new_website)
 		{
-			$this->website = $website;
+			$this->website = $new_website;
 		}
 
 		function getEmail()
@@ -106,9 +106,9 @@
 			return $this->email;
 		}
 
-		function setEmail()
+		function setEmail($new_email)
 		{
-			$this->email = $email;
+			$this->email = $new_email;
 		}
 
 		function getId()

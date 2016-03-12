@@ -203,6 +203,68 @@
 			//Assert
 			$this->assertEquals([$test_pickup2], $result);
 		}
+
+		function test_update()
+		{
+			//Arrange
+			$pickup_name = "Adams Soccer Pickup";
+			$sport_id = 1;
+			$location = "1 Main Street, Portland Oregon";
+			$date_time = "11:00 2016-03-12";
+			$recurring = 0;
+			$skill_level = "All";
+			$description = "Join this pickup!";
+			$email = "adam@asl.com";
+			$id = null;
+			$test_pickup = new Pickup($pickup_name, $sport_id, $location, $date_time, $recurring, $skill_level, $description, $email, $id);
+			$test_pickup->save();
+
+			$pickup_name2 = "Bills Soccer Pickup";
+			$location2 = "2 Main Street, Portland Oregon";
+			$date_time2 = "9:00 2016-04-11";
+			$recurring2 = 1;
+			$skill_level2 = "Pro";
+			$description2 = "Join this pickup now!";
+			$email2 = "bill@asl.com";
+
+			//Act
+			$test_pickup->update($pickup_name2, $location2, $date_time2, $recurring2, $skill_level2, $description2, $email2);
+			$db_output = Pickup::getAll();
+			$found_pickup = $db_output[0];
+			//Assert
+			$this->assertEquals($pickup_name2, $found_pickup->getPickupName());
+			$this->assertEquals($location2, $found_pickup->getLocation());
+			$this->assertEquals($date_time2, $found_pickup->getDateTime());
+			$this->assertEquals($recurring2, $found_pickup->getRecurring());
+			$this->assertEquals($skill_level2, $found_pickup->getSkillLevel());
+			$this->assertEquals($description2, $found_pickup->getDescription());
+			$this->assertEquals($email2, $found_pickup->getEmail());
+		}
+
+		// function test_search()
+		// {
+		// 	//Arrange
+		// 	$strain_name = "Blue Dream";
+		// 	$dispensary_id = 1;
+		// 	$pheno = "Indica";
+		// 	$quantity = 1;
+		// 	$id = null;
+		// 	$test_dispensary_demand = new DispensaryDemand($strain_name, $dispensary_id, $pheno, $quantity, $id);
+		// 	$test_dispensary_demand->save();
+		// 	$strain_name2 = "Purple Haze";
+		// 	$dispensary_id2 = 2;
+		// 	$pheno2 = "Sativa";
+		// 	$quantity2 = 1;
+		// 	$test_dispensary_demand2 = new DispensaryDemand($strain_name2, $dispensary_id2, $pheno2, $quantity2, $id);
+		// 	$test_dispensary_demand2->save();
+		// 	$search_term = "Purple";
+		// 	//Act
+		// 	$result = DispensaryDemand::search($search_term);
+		// 	//Assert
+		// 	$this->assertEquals([$test_dispensary_demand2], $result);
+		// }
+
+
 	}
 
 ?>

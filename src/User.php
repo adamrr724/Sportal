@@ -21,9 +21,9 @@
 			return $this->user_name;
 		}
 
-		function setUserName()
+		function setUserName($new_user_name)
 		{
-			$this->user_name = $user_name;
+			$this->user_name = $new_user_name;
 		}
 
 		function getUserType()
@@ -31,9 +31,9 @@
 			return $this->user_type;
 		}
 
-		function setUserType()
+		function setUserType($new_user_type)
 		{
-			$this->user_type = $user_type;
+			$this->user_type = $new_user_type;
 		}
 
 		function getName()
@@ -41,14 +41,14 @@
 			return $this->name;
 		}
 
-		function setName()
+		function setName($new_name)
 		{
-			$this->name = $name;
+			$this->name = $new_name;
 		}
 
-		function setPassword()
+		function setPassword($new_password)
 		{
-			$this->password = $password;
+			$this->password = $new_password;
 		}
 
 		function getPassword()
