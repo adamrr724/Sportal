@@ -118,7 +118,6 @@
 
 		function save()
 		{
-			$existing_leagues = $GLOBALS['DB']->query("SELECT * FROM leagues");
 			$GLOBALS['DB']->exec("INSERT INTO leagues (league_name, sport_id, price, skill_level, description, location, website, email, org_id) VALUES ('{$this->getLeagueName()}', {$this->getSportId()}, {$this->getPrice()}, '{$this->getSkillLevel()}', '{$this->getDescription()}', '{$this->getLocation()}', '{$this->getWebsite()}', '{$this->getEmail()}', {$this->getOrgId()});");
 			$this->id = $GLOBALS['DB']->lastInsertId();
 		}

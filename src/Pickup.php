@@ -103,7 +103,6 @@
 
 		function save()
 		{
-			$existing_pickups = $GLOBALS['DB']->query("SELECT * FROM pickups");
 			$GLOBALS['DB']->exec("INSERT INTO pickups (pickup_name, sport_id, location, date_time, recurring, skill_level, description, email) VALUES ('{$this->getPickupName()}', {$this->getSportId()}, '{$this->getLocation()}', '{$this->getDateTime()}', {$this->getRecurring()}, '{$this->getSkillLevel()}', '{$this->getDescription()}', '{$this->getEmail()}');");
 			$this->id = $GLOBALS['DB']->lastInsertId();
 		}
