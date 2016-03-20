@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sportal Pickup</title>
+</head>
+  <body>
+      <h1>Sportal Pickup</h1>
+      <div class="pickups_add">
+            <h3>Add a new demand:</h3>
+            <form class="" action="/pickups/add" method="post">
+                <label>Pickup Game Name</label>
+                <input type="text" name="pickup_name" required="">
+                <label>Sport</label>
+                <select class="" name="sport">
+                    <option value=1>Soccer</option>
+                    <option value=2>Basketball</option>
+                    <option value=3>Ultimate</option>
+                    <option value=4>Miscellaneous</option>
+                </select>
+                <label>Location</label>
+                <input type="text" name="location" required="">
+                <label>Date and Time</label>
+                <input type="datetime" name="date_time" required="">
+                <label>Recurring Event?</label>
+                <input type="radio" name="recurring" value="1"> Yes <br>
+                <input type="radio" name="recurring" value="0"> No <br>
+                <label>Skill Level</label>
+                <select class="" name="skill_level">
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Expert">Expert</option>
+                    <option value="All Levels Welcome">All Levels Welcome</option>
+                </select>
+                <label>Description</label>
+                <input type="text" name="description">
+                <label>Email</label>
+                <input type="email" name="email">
+              <button type="submit" name="button">Add this Game</button>
+            </form>
+
+            <h3>Pickups Games</h3>
+           {% if pickups is not empty %}
+           <ul>
+           {% for pickup in pickups %}
+                   <h3>{{ pickup.getPickupName }}</h3>
+                   <ul>
+                       <li>{{ pickup.getSportId }}</li>
+                       <li>{{ pickup.getLocation }}</li>
+                       <li>{{ pickup.getRecurring }}</li>
+                       <li>{{ pickup.getSkillLevel }}</li>
+                       <li>{{ pickup.getDateTime }}</li>
+                       <li>{{ pickup.getDescription }}</li>
+                       <li>{{ pickup.getEmail }}</li>
+                   </ul>
+           {% endfor %}
+           </ul>
+        {% else %}
+        <p>
+           No brands added yet!
+        </p>
+        {% endif %}
+
+  </body>
+</html>
