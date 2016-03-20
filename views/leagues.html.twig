@@ -4,8 +4,62 @@
   <title>Sportal Leagues</title>
 </head>
   <body>
-      <h1>Sportal Legaues</h1>
-      <a href="/pickups">Find a pickup game</a>
-      <a href="/leagues">Find a league</a>
+      <h1>Sportal Leagues</h1>
+      <div class="leagues_add">
+            <h3>Add a new league</h3>
+            <form class="" action="/leagues/add" method="post">
+                <label>League Game Name</label>
+                <input type="text" name="league_name" required="">
+                <label>Sport</label>
+                <select class="" name="sport_id">
+                    <option value=1>Soccer</option>
+                    <option value=2>Basketball</option>
+                    <option value=3>Ultimate</option>
+                    <option value=4>Miscellaneous</option>
+                </select>
+                <label>Location</label>
+                <input type="text" name="location" required="">
+                <label>Price</label>
+                <input type="number" name="price" required="">
+                <label>Skill Level</label>
+                <select class="" name="skill_level">
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Expert">Expert</option>
+                    <option value="All Levels Welcome">All Levels Welcome</option>
+                </select>
+                <label>Description</label>
+                <input type="text" name="description">
+                <label>Website</label>
+                <input type="url" name="website">
+                <label>Organization</label>
+                <input type="number" name="org_id">
+                <label>Email</label>
+                <input type="email" name="email">
+              <button type="submit" name="button">Add this Game</button>
+            </form>
+
+            <h3>Leagues Games</h3>
+           {% if leagues is not empty %}
+           <ul>
+           {% for league in leagues %}
+                   <h3>{{ league.getLeagueName }}</h3>
+                   <ul>
+                       <li>{{ league.getSportId }}</li>
+                       <li>{{ league.getLocation }}</li>
+                       <li>{{ league.getPrice }}</li>
+                       <li>{{ league.getSkillLevel }}</li>
+                       <li>{{ league.getWebsite }}</li>
+                       <li>{{ league.getDescription }}</li>
+                       <li>{{ league.getEmail }}</li>
+                   </ul>
+           {% endfor %}
+           </ul>
+        {% else %}
+        <p>
+           No brands added yet!
+        </p>
+        {% endif %}
+
   </body>
 </html>

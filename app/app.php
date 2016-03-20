@@ -53,13 +53,27 @@
 		$email = $_POST['email'];
 		$pickup = new Pickup($pickup_name, $sport_id, $location, $date_time, $recurring, $skill_level, $description, $email, $id = null);
 		$pickup->save();
-		var_dump($pickup);
 		$pickups = Pickup::getAll();
         return $app['twig']->render('pickups.html.twig', array('pickups' => $pickups));
     });
 
 
 	// LEAGUE PAGE ROUTES
+	$app->post("/leagues/add", function() use ($app) {
+		$league_name = $_POST['league_name'];
+		$sport_id = $_POST['sport_id'];
+		$price = $_POST['price'];
+		$location = $_POST['location'];
+		$skill_level = $_POST['skill_level'];
+		$website = $_POST['website'];
+		$description = $_POST['description'];
+		$email = $_POST['email'];
+		$org_id = $_POST['org_id'];
+		$league = new League($league_name, $sport_id, $price, $location, $skill_level, $description, $website, $email, $org_id, $id = null);
+		$league->save();
+		$leagues = League::getAll();
+        return $app['twig']->render('leagues.html.twig', array('leagues' => $leagues));
+    });
 
 	return $app;
 
