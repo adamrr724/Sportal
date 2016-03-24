@@ -215,6 +215,34 @@
 			//Assert
 			$this->assertEquals([$test_league2], $result);
 		}
+
+		function test_getSportNameById()
+		{
+			//Arrange
+			$league_name = "Adams Soccer League";
+			$sport_id = 1;
+			$price = "90";
+			$location = "1 Main Street, Portland Oregon";
+			$skill_level = "All";
+			$description = "Join this league!";
+			$website = "www.adams.com";
+			$email = "adam@asl.com";
+			$org_id = 1;
+			$id = null;
+			$test_league = new League($league_name, $sport_id, $price, $location, $skill_level, $description, $website, $email, $org_id, $id);
+
+			$sport_name = "Soccer";
+			$id = 1;
+			$test_sport = new Sport($sport_name, $id);
+			$test_sport->save();
+
+			//Act
+			$result = $test_league->getSportNameById($sport_id)
+
+		//Assert
+			$this->assertEquals("Soccer", $result);
+		}
+
 	}
 
 ?>

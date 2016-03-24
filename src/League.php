@@ -143,6 +143,16 @@
 			return $leagues;
 		}
 
+		static function getSportNameById($id) {
+			$returned_sports = $GLOBALS['DB']->query('SELECT * FROM sports');
+			foreach($returned_sports as $sport) {
+				$sport_name = $sport->getSportName();
+				if ($sport_name == $id) {
+						return $sport_name;
+				}
+			}
+		}
+
 		static function deleteAll()
 		{
 			$GLOBALS['DB']->exec("DELETE FROM leagues");
