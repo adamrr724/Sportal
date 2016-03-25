@@ -1,0 +1,51 @@
+body {
+    background-color: #fafafa;
+}
+
+
+#sportal_logo {
+margin-bottom: 30px;
+display:block;
+margin-left: auto;
+margin-right: auto;
+height: 25em;
+}
+
+.home_links {
+    display:inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#pickup_link {
+    margin-right: 5px;
+}
+
+#league_link {
+    margin-left:5px;
+}
+
+.btn {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 1px 10px #666666;
+  -moz-box-shadow: 0px 1px 10px #666666;
+  box-shadow: 0px 1px 10px #666666;
+  font-family: Arial;
+  color: #4d4c4d;
+  font-size: 20px;
+  background: #ffffff;
+  padding: 10px 20px 10px 20px;
+  border: solid #6a8ca1 0px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #e0e0e0;
+  text-decoration: none;
+}
+
+.container {
+    text-align: center;
+}

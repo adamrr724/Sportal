@@ -9,34 +9,34 @@
             <h3>Add a new league</h3>
             <form class="" action="/leagues/add" method="post">
                 <label>League Game Name</label>
-                <input type="text" name="league_name" required="">
+                <input type="text" name="league_name" required=""><br>
                 <label>Sport</label>
                 <select class="" name="sport_id">
                     <option value=1>Soccer</option>
                     <option value=2>Basketball</option>
                     <option value=3>Ultimate</option>
                     <option value=4>Miscellaneous</option>
-                </select>
+                </select><br>
                 <label>Location</label>
-                <input type="text" name="location" required="">
+                <input type="text" name="location" required=""><br>
                 <label>Price</label>
-                <input type="number" name="price" required="">
+                <input type="number" name="price" required=""><br>
                 <label>Skill Level</label>
                 <select class="" name="skill_level">
                     <option value="Beginner">Beginner</option>
                     <option value="Intermediate">Intermediate</option>
                     <option value="Expert">Expert</option>
                     <option value="All Levels Welcome">All Levels Welcome</option>
-                </select>
+                </select><br>
                 <label>Description</label>
-                <input type="text" name="description">
+                <input type="text" name="description"><br>
                 <label>Website</label>
-                <input type="url" name="website">
+                <input type="url" name="website"><br>
                 <label>Organization</label>
-                <input type="number" name="org_id">
+                <input type="number" name="org_id"><br>
                 <label>Email</label>
                 <input type="email" name="email">
-              <button type="submit" name="button">Add this Game</button>
+              <button type="submit" name="button">Add this Game</button><br>
             </form>
 
             <h3>Leagues Games</h3>
@@ -45,19 +45,20 @@
            {% for league in leagues %}
                    <h3>{{ league.getLeagueName }}</h3>
                    <ul>
-                       <li>{{ league.getSportId }}</li>
-                       <li>{{ league.getLocation }}</li>
-                       <li>{{ league.getPrice }}</li>
-                       <li>{{ league.getSkillLevel }}</li>
-                       <li>{{ league.getWebsite }}</li>
-                       <li>{{ league.getDescription }}</li>
-                       <li>{{ league.getEmail }}</li>
+
+                       <li>League Name: {{ league.getSportNameById(league.getSportId) }}</li>
+                       <li>Location(s):{{ league.getLocation }}</li>
+                       <li>Price: ${{ league.getPrice }}</li>
+                       <li>Skill Level: {{ league.getSkillLevel }}</li>
+                       <li>League Website: {{ league.getWebsite }}</li>
+                       <li>More Information: {{ league.getDescription }}</li>
+                       <li>Contact Email: {{ league.getEmail }}</li>
                    </ul>
            {% endfor %}
            </ul>
         {% else %}
         <p>
-           No brands added yet!
+           No leagues added yet!
         </p>
         {% endif %}
 

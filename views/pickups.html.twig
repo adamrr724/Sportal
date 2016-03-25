@@ -9,19 +9,19 @@
             <h3>Add a new pickup game:</h3>
             <form class="" action="/pickups/add" method="post">
                 <label>Pickup Game Name</label>
-                <input type="text" name="pickup_name" required="">
+                <input type="text" name="pickup_name" required=""><br>
                 <label>Sport</label>
                 <select class="" name="sport_id">
                     <option value=1>Soccer</option>
                     <option value=2>Basketball</option>
                     <option value=3>Ultimate</option>
                     <option value=4>Miscellaneous</option>
-                </select>
+                </select><br>
                 <label>Location</label>
-                <input type="text" name="location" required="">
+                <input type="text" name="location" required=""><br>
                 <label>Date and Time</label>
-                <input type="datetime" name="date_time" required="">
-                <label>Recurring Event?</label>
+                <input type="datetime" name="date_time" required=""><br>
+                <label>Recurring Event?</label><br>
                 <input type="radio" name="recurring" value="1"> Yes <br>
                 <input type="radio" name="recurring" value="0"> No <br>
                 <label>Skill Level</label>
@@ -30,12 +30,12 @@
                     <option value="Intermediate">Intermediate</option>
                     <option value="Expert">Expert</option>
                     <option value="All Levels Welcome">All Levels Welcome</option>
-                </select>
+                </select><br>
                 <label>Description</label>
-                <input type="text" name="description">
+                <input type="text" name="description"><br>
                 <label>Email</label>
                 <input type="email" name="email">
-              <button type="submit" name="button">Add this Game</button>
+              <button type="submit" name="button">Add this Game</button><br>
             </form>
 
             <h3>Pickups Games</h3>
@@ -44,19 +44,25 @@
            {% for pickup in pickups %}
                    <h3>{{ pickup.getPickupName }}</h3>
                    <ul>
-                       <li>{{ pickup.getSportId }}</li>
-                       <li>{{ pickup.getLocation }}</li>
-                       <li>{{ pickup.getRecurring }}</li>
-                       <li>{{ pickup.getSkillLevel }}</li>
-                       <li>{{ pickup.getDateTime }}</li>
-                       <li>{{ pickup.getDescription }}</li>
-                       <li>{{ pickup.getEmail }}</li>
+                       <li>Pickup Game Name: {{ pickup.getSportNameById(pickup.getSportId) }}</li>
+                       <li>Location: {{ pickup.getLocation }}</li>
+                       <li>Is this a Recurring Game?
+                           {% if pickup.recurring == 1 %}
+                                Yes
+                            {% else %}
+                                No
+                            {% endif %}
+                            </li>
+                       <li>Skill Level: {{ pickup.getSkillLevel }}</li>
+                       <li>Date and Time: {{ pickup.getDateTime }}</li>
+                       <li>More Information: {{ pickup.getDescription }}</li>
+                       <li>Contact Email: {{ pickup.getEmail }}</li>
                    </ul>
            {% endfor %}
            </ul>
         {% else %}
         <p>
-           No brands added yet!
+           No games added yet!
         </p>
         {% endif %}
 

@@ -6,6 +6,8 @@
 	*/
 
 	require_once 'src/Sport.php';
+	require_once 'src/League.php';
+	require_once 'src/Pickup.php';
 
 	$server = 'mysql:host=localhost:8889;dbname=sportal_test';
 	$username = 'root';
@@ -19,6 +21,7 @@
 		{
 			Sport::deleteAll();
 			League::deleteAll();
+			Pickup::deleteAll();
 		}
 
 		function test_getters()
@@ -102,7 +105,7 @@
 			$this->assertEquals($test_sport, $result);
 		}
 
-		function test_getSportNameById()
+		function test_getSportById()
 		{
 			//Arrange
 			$league_name = "Adams Soccer League";
@@ -122,10 +125,10 @@
 			$test_sport->save();
 
 			//Act
-			$result = Sport::getSportNameById($test_sport->getId());
+			$result = Sport::getSportById($test_sport->getId());
 
 			//Assert
-			$this->assertEquals($sport_name, $result);
+			$this->assertEquals($test_sport, $result);
 		}
 	}
 

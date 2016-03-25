@@ -194,5 +194,16 @@
             return $found_pickups;
         }
 
+		function getSportNameById($sport_id) {
+			$returned_sports = $GLOBALS['DB']->query('SELECT * FROM sports');
+			foreach($returned_sports as $sport) {
+				$id = $sport['id'];
+				$name = $sport['sport_name'];
+				if ($sport_id == $id) {
+					return $name;
+				}
+			}
+		}
+
 	}
  ?>

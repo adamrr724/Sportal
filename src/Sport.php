@@ -62,14 +62,14 @@
 			return $found_sport;
 		}
 
-		static function getSportNameById($sport_id) {
+		static function getSportById($sport_id) {
 			$returned_sports = $GLOBALS['DB']->query('SELECT * FROM sports');
 			foreach($returned_sports as $sport) {
 				$id = $sport['id'];
 				if ($sport_id == $id) {
 					$sport_name = $sport['sport_name'];
-						return $sport_name;
-						var_dump($sport_name);
+					$sportObject = new Sport($sport_name, $id);
+						return $sportObject;
 				}
 			}
 		}
