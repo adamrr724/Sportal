@@ -26,6 +26,7 @@
 			$this->id = $id;
 		}
 
+
 		function getLeagueName()
 		{
 			return $this->league_name;
