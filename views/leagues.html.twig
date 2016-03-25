@@ -33,7 +33,10 @@
                 <label>Website</label>
                 <input type="url" name="website"><br>
                 <label>Organization</label>
-                <input type="number" name="org_id"><br>
+                <select class="" name="org_id">
+                    <option value="1">JCC</option>
+                    <option value="2">YMCA</option>
+                </select><br>
                 <label>Email</label>
                 <input type="email" name="email">
               <button type="submit" name="button">Add this Game</button><br>
@@ -47,7 +50,7 @@
                    <ul>
 
                        <li>League Name: {{ league.getSportNameById(league.getSportId) }}</li>
-                       <li>Location(s):{{ league.getLocation }}</li>
+                       <li>Location(s): {{ league.getLocation }}</li>
                        <li>Price: ${{ league.getPrice }}</li>
                        <li>Skill Level: {{ league.getSkillLevel }}</li>
                        <li>League Website: {{ league.getWebsite }}</li>

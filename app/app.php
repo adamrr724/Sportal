@@ -52,6 +52,7 @@
 		$description = $_POST['description'];
 		$email = $_POST['email'];
 		$pickup = new Pickup($pickup_name, $sport_id, $location, $date_time, $recurring, $skill_level, $description, $email, $id = null);
+		var_dump($pickup);
 		$pickup->save();
 		$pickups = Pickup::getAll();
         return $app['twig']->render('pickups.html.twig', array('pickups' => $pickups));
@@ -71,6 +72,7 @@
 		$org_id = $_POST['org_id'];
 		$league = new League($league_name, $sport_id, $price, $location, $skill_level, $description, $website, $email, $org_id, $id = null);
 		$league->save();
+		var_dump($league);
 		$leagues = League::getAll();
         return $app['twig']->render('leagues.html.twig', array('leagues' => $leagues));
     });
