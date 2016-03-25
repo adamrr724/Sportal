@@ -1,6 +1,6 @@
 <?php
-	 class Sport
-		{
+	class Sport
+	{
 		private $sport_name;
 		private $id;
 
@@ -62,4 +62,5 @@
 			return $found_sport;
 		}
 	}
+
  ?>
